@@ -11,4 +11,20 @@
     margin: 0;
     height: 15px;
     border-radius: 50%;
-    background-color: red;}
+    background-color: red;
+}
+
+.btn-category{
+        width: 100%;
+        background-color: transparent;
+        border-color: transparent;
+        color: black;
+        text-align: start;
+        margin: 0;
+}
+
+.btn-category:hover{
+    background-color: transparent;
+    color: black;
+    border-color: transparent;
+}

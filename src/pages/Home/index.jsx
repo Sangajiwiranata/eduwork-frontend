@@ -3,6 +3,7 @@ import Navigation from '../../component/Navigation';
 import './style.css'
 import CardProduct from "../../component/CardProduct";
 import Tag from "../../component/Badge";
+// import Tag from "../../component/Badge";
 
 
 

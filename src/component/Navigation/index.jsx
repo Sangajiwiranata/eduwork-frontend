@@ -6,8 +6,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './style.css'
+import { useDispatch } from 'react-redux';
+import { getListCategory } from '../../app/actions/ProductAction';
 
 function Navigation() {
+    const dispatch = useDispatch();
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -15,11 +18,11 @@ function Navigation() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <NavDropdown title="Home" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#">Home</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2" >Food</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Beverage</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Pastry</NavDropdown.Item>
+                        <NavDropdown title='Category' id="collasible-nav-dropdown">
+                            <NavDropdown.Item><Button className='btn-category' onClick={() => dispatch(getListCategory(''))}>Home</Button></NavDropdown.Item>
+                            <NavDropdown.Item><Button className='btn-category' onClick={() => dispatch(getListCategory('Drink'))}>Drink</Button></NavDropdown.Item>
+                            <NavDropdown.Item><Button className='btn-category' onClick={() => dispatch(getListCategory('Pastry'))}>Pastry</Button></NavDropdown.Item>
+                            <NavDropdown.Item><Button className='btn-category' onClick={() => dispatch(getListCategory('Food'))}>Food</Button></NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Form className="d-flex">

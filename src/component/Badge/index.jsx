@@ -4,8 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Container } from "react-bootstrap";
 import './style.css'
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { getListCategory } from '../../app/actions/ProductAction';
+
 
 const Tag = () => {
+    const { categoryResult } = useSelector((state) => state.ProductsReducer);
+
+    let titleCategory = ""
+    if (categoryResult === '') {
+        titleCategory = 'Home'
+    } else {
+        titleCategory = categoryResult;
+    }
+
+    const dispatch = useDispatch();
     const [tags, setTags] = useState('');
 
     const getcategory = async () => {
@@ -17,15 +30,14 @@ const Tag = () => {
         getcategory()
     }, [])
 
-
     return (
         <div>
             <Container className='mt-4 mb-2'>
-                <h3>Home</h3>
+                <h3>{titleCategory}</h3>
                 <p>Tags : </p>
                 {tags && tags.map((tag) => {
                     return (
-                        <Button variant="secondary" className="btn-icon">
+                        <Button variant="secondary" className="btn-icon" onClick={() => dispatch(getListCategory(tag.name))}>
                             <FontAwesomeIcon className='icon-aw' icon={faTag} />
                             {tag.name}
                         </Button>
