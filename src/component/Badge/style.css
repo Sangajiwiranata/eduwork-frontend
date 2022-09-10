@@ -1,0 +1,15 @@
+p{
+    display: inline;
+}
+
+.btn-icon{
+    margin: 0;
+    text-align: start;
+    height: auto;
+    width: auto;
+    font-size: 10px;
+}
+
+.icon-aw{
+    margin-right: 5px;
+}
